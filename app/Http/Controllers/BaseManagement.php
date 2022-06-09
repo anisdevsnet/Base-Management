@@ -67,6 +67,6 @@ class BaseManagement extends Controller
    public function logout()
    {
       session()->forget(['loginId']);
-      return redirect('backend.auth.login');
+      return view('backend.auth.login');
    }
 }
