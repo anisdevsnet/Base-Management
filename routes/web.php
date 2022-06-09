@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BaseManagement;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('backend.home');
+    return view('backend.auth.login');
 });
+Route::get('login',[BaseManagement::class,'login']);
+Route::get('registration',[BaseManagement::class,'registration']);
+Route::post('register-user',[BaseManagement::class,'registeruser'])->name('register-user');
+Route::post('login-user',[BaseManagement::class,'loginuser'])->name('login-user');
+Route::get('/home',[BaseManagement::class,'index']);
+Route::get('logout',[BaseManagement::class,'logout']);
